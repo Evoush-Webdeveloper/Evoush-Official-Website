@@ -9,7 +9,7 @@
 							<a :href="site.url" class="ml-3">{{ site.name }}</a>
 						</div>
 						<br>
-						<div v-if="site.name === 'Landing Product'">
+						<div v-if="site.name === 'Landing Product'" style="margin-top:-1rem;">
 							<span class="badge badge-primary" > {{ site.name }} </span>
 							<ol class="ml-4" style="list-style: none; text-align: left;">
 								<li v-for="landing in landings">
@@ -30,26 +30,29 @@
 
 <script>
 	export default{
-		mounted(){
-			this.getSiteMap(),
-			this.getLandingSite()
-		},
-
-		computed: {
-			sites(){
-				return this.$store.getters.getSitemap
-			},
-			landings(){
-				return this.$store.getters.getLandingSite
+		data(){
+			return {
+				date: new Date().getFullYear(),
+				sites:[],
+				landings: []
 			}
 		},
-
-		methods: {
+		created(){
+			this.getSiteMap()
+		},
+		methods:{
 			getSiteMap(){
-				this.$store.commit('sitemaps')
-			},
-			getLandingSite(){
-				this.$store.commit('landingsite')
+				this.sites.push(
+					{id:1, name: 'Starter Page', url: 'https://evoush-landing-api.herokuapp.com'},
+					{id:2, name: 'Landing Product', url:''}
+				)
+				this.landings.push(
+					{id:1, name: 'Gilcam Propolis', url: 'https://propolis.netlify.app/'},
+					{id:2, name: 'Brightening Beauty Soap', url: 'https://evoush-beauty-soap.netlify.app/'},
+					{id:3, name: 'Kileon', url: 'https://kileon.netlify.app/'},
+					{id:4, name: 'Perfect Lipmatte', url: 'https://evoush-perfect-lipmatte.netlify.app/'},
+					{id:5, name: 'Peeling Spray', url: 'https://peeling-spray.netlify.app/'}
+				)
 			}
 		}
 	}
