@@ -9,7 +9,7 @@
 							<a :href="site.url" class="ml-3">{{ site.name }}</a>
 						</div>
 						<br>
-						<div v-if="site.name === 'Landing Product'" style="margin-top:-1rem;">
+						<div v-if="site.name === 'Landing Product'">
 							<span class="badge badge-primary" > {{ site.name }} </span>
 							<ol class="ml-4" style="list-style: none; text-align: left;">
 								<li v-for="landing in landings">
