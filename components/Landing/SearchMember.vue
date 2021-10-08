@@ -25,11 +25,15 @@
 				{{ error }}
 			</div>
 			<!-- <img src="https://64.media.tumblr.com/aac2f5a3e634799d9b15fa20218efa51/tumblr_p9rgvzIBhe1wxdq3zo1_500.gifv" class="img-fluid mt-2 mb-5"> -->
-			<img v-if="!loading" src="https://cdn.dribbble.com/users/2272148/screenshots/6633933/daily008.gif" class="img-fluid mb-5 mt-2">
+			<img v-if="!loading" src="https://www.pinclipart.com/picdir/big/159-1596486_information-technology-clip-art.png" class="img-fluid mb-5 mt-2">
 		</div>
 
 		<div v-if="loading">
-			<img src="https://media.baamboozle.com/uploads/images/61672/1613937931_188128_gif-url.gif" class="img-fluid">
+			<!-- <img src="https://media.baamboozle.com/uploads/images/61672/1613937931_188128_gif-url.gif" class="img-fluid"> -->
+			<div class="d-flex align-items-start">
+				<strong>Loading...</strong>
+				<div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+			</div>
 		</div>
 
 		<div v-else>

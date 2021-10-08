@@ -8,6 +8,17 @@
 					<nuxt-content :document="article"/>
 				</article>
 			</div>
+
+			<div class="col-lg-12 col-xs-12 col-sm-12 mt-5 mb-5">
+				<button class="btn btn-sm btn-primary" @click="getLikes">
+					<i class='bx bx-like'></i>
+				</button>
+
+				<button class="btn btn-sm btn-danger">
+					<i class='bx bx-dislike'></i>
+				</button>
+			</div>
+
 			<div class="col-lg-12 col-xs-12 col-sm-12 mt-2 mb-5">
 				<Disqus />
 			</div>
@@ -55,11 +66,21 @@ export default {
 		}
 	},
 
+	computed:{
+		likes(){
+			return this.$store.getters.getLike
+		}
+	},
+
 
 	methods: {
 		formatDate(date) {
 			const options = { year: 'numeric', month: 'long', day: 'numeric' }
 			return new Date(date).toLocaleDateString('en', options)
+		},
+
+		getLikes(){
+			this.$store.commit('likes')
 		}
 	},
 
