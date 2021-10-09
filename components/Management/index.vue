@@ -189,7 +189,7 @@
 		max-height: 50vh;
 	}
 	._content-img-profile{
-		height: 490px;
+		height: 520px;
 		margin-top: .1rem;
 	}
 

@@ -219,7 +219,7 @@
 }
 @media (min-width: 992px) {
 	.loading-imgbox{
-		width: 800px;
+		width: 500px;
 	}
 	.interactive-product img{
 		max-width: 800px;
