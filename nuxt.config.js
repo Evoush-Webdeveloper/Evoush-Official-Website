@@ -149,6 +149,10 @@ export default {
       async: 'true',
       'custom-element': 'amp-ad'
     },
+    {
+      src: 'https://platform-api.sharethis.com/js/sharethis.js#property=61606506ea6eca00151d8ce7&product=inline-reaction-buttons',
+      async: 'async'
+    },
     // {
     //   src: 'https://cdn.onesignal.com/sdks/OneSignalSDK.js',
     //   async: '',

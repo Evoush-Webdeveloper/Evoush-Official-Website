@@ -9,14 +9,8 @@
 				</article>
 			</div>
 
-			<div class="col-lg-12 col-xs-12 col-sm-12 mt-5 mb-5">
-				<button class="btn btn-sm btn-primary" @click="getLikes">
-					<i class='bx bx-like'></i>
-				</button>
-
-				<button class="btn btn-sm btn-danger">
-					<i class='bx bx-dislike'></i>
-				</button>
+			<div class="col-lg-12 col-xs-12 col-sm-12">
+				<div class="sharethis-inline-reaction-buttons mt-5 mb-5"></div>
 			</div>
 
 			<div class="col-lg-12 col-xs-12 col-sm-12 mt-2 mb-5">
