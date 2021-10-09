@@ -25,7 +25,7 @@
 				{{ error }}
 			</div>
 			<!-- <img src="https://64.media.tumblr.com/aac2f5a3e634799d9b15fa20218efa51/tumblr_p9rgvzIBhe1wxdq3zo1_500.gifv" class="img-fluid mt-2 mb-5"> -->
-			<img v-if="!loading" src="https://www.pinclipart.com/picdir/big/159-1596486_information-technology-clip-art.png" class="img-fluid mb-5 mt-2">
+			<img v-if="!loading" src="https://raw.githubusercontent.com/evoush-products/bahan_evoush/a7ec8cdbaccc66257bbdc5d2d82d8a202069d8b9/assets/alert-assets/error-no-result.svg" class="img-fluid mb-5 mt-2">
 		</div>
 
 		<div v-if="loading">
@@ -37,8 +37,16 @@
 		</div>
 
 		<div v-else>
-			<div v-if="message" :class="message === `Data username ${username} ditemukan` ? 'alert alert-success mt-5' : 'alert alert-warning mt-5'">
+			<div v-if="message === `Data username ${username} ditemukan`" class="alert alert-success mt-5">
 				{{ message }}
+			</div>
+			<div v-else>
+				<center>
+					<img src="https://raw.githubusercontent.com/evoush-products/bahan_evoush/a7ec8cdbaccc66257bbdc5d2d82d8a202069d8b9/assets/alert-assets/error-no-result.svg" width="400" class="img-fluid mb-2 mt-2">
+				</center>
+				<div class="alert alert-warning">
+					{{ message }}
+				</div>
 			</div>
 
 				<CardMember :members="members"/>
