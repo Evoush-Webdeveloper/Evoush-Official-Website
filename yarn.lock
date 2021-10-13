@@ -5512,6 +5512,11 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+kaboom@^2000.0.0-beta.24:
+  version "2000.0.0-beta.24"
+  resolved "https://registry.yarnpkg.com/kaboom/-/kaboom-2000.0.0-beta.24.tgz#3fae57bf4036dc7da0111d36af8f7cee501620f3"
+  integrity sha512-otuNaexkINm+sVdf0PeEaf+WaoYMVDSqz+s54mHpLboHkb53X81SVsIDpXubJAI3dFlcZ9C3GFKnCNfRkLR/sQ==
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -9450,6 +9455,11 @@ vue-server-renderer@^2.6.12:
     resolve "^1.2.0"
     serialize-javascript "^3.1.0"
     source-map "0.5.6"
+
+vue-sharethis@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/vue-sharethis/-/vue-sharethis-0.0.1.tgz#89de968c69f658c065fda30f3db58c9fab659622"
+  integrity sha512-2CPXIjJaFyFTjnFq2iHF8jZz/PmxmMO9Hq0sAnEkLjf+hBe3jB1UFNkf+lpR2nmEojYcia396JtKBCyDx0Fg/A==
 
 vue-social-sharing@^3.0.8:
   version "3.0.8"
