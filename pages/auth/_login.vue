@@ -212,7 +212,7 @@
 
 <style scoped>
 .box {
-	width: 350px;
+	width: 310px;
 	padding: 30px;
 	position: absolute;
 	/*top: 70%!important;*/
@@ -387,11 +387,11 @@ a.socialIcon:hover,
 }
 
 input[name="request-username"]{
-	margin-left: .5rem!important;
+	margin-left: -.1rem!important;
 }
 .btn-request{
 	font-size:14px;
-	margin-left:.5rem;
+	margin-left:.7rem;
 	width:100%;
 	height:50px;
 	padding:12px;
