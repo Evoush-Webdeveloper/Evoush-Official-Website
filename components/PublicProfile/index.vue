@@ -16,9 +16,9 @@
 						http://localhost:8000/storage/{{member.cover}}
 					</pre> -->
 					<div class="px-4 pt-5 pb-4 cover" :style="(member.cover) ? `background-image: url('https://raw.githubusercontent.com/evoush-products/bahan_evoush/main/migration_db/${member.cover}')` : 'background-image: url(https://coolwallpapers.me/picsup/5605343-internet-wallpapers.jpg)'">
-						<div class="media float-right">
+						<div class="media">
 							<div class="row justify-content-center">
-								<div class="col-lg-10">
+								<div class="col-lg-12 col-xs-12 col-sm-12">
 									<div v-if="member.avatar" class="container">
 										<img :src="`https://app.evoush.com/storage/${member.avatar}`" alt="..."  class="rounded-circle mb-3 profile profile-overlay">
 										<div class="middle">
@@ -267,7 +267,7 @@
 .cover {
 	background-repeat: no-repeat;
 	/*height: 50vh;*/
-	min-height: 55vh;
+	min-height: 50vh;
 	width: 100%;
 	-webkit-background-size: cover;
 	background-size: cover;
@@ -275,11 +275,11 @@
 }
 
 .media .profile{
-	width: 150px;
+	width: 200px;
 	height: auto;
 	border-radius: 50%!important;
 	margin-top: 1rem;
-	margin-left: -1rem;
+	margin-left: -3rem;
 }
 
 .container {
@@ -303,7 +303,7 @@
 	opacity: 0;
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 40%;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	text-align: center;
@@ -322,27 +322,28 @@
 }
 
 .media-body {
-	margin-top: 2.3rem;
+	margin-left:1rem;
+	margin-top: 1rem;
 }
 
-.media-body h4{
-	font-size: 31px;
-}
-.media-body p{
-	font-size:16px;
-}
 @media (min-width: 992px) {
 	.media .profile{
-		margin-top: 1rem;
-		margin-left: -2rem;
+		margin-top: 10rem;
+		margin-left: 13rem;
+		width: 250px;
+		height: auto;
 	}
 
-	.media .profile{
-		width: 250px;
-		height: 250px;
-		/*border-radius: 50%!important;
-		margin-top: 7rem;*/
-		/*margin-left: -2rem;*/
+	.media-body{
+		margin-left: -3rem;
+	}
+
+	.media-body h4{
+		font-size:31px;
+	}
+
+	.media-body p{
+		font-size: 21px;
 	}
 
 	.profile-overlay{
@@ -357,6 +358,16 @@
 		opacity: 0.3;
 	}
 
+	.middle {
+		transition: .5s ease;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 60%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		text-align: center;
+	}
 
 }
 </style>
