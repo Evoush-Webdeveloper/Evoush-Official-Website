@@ -16,14 +16,17 @@
 						http://localhost:8000/storage/{{member.cover}}
 					</pre> -->
 					<div class="px-4 pt-5 pb-4 cover" :style="(member.cover) ? `background-image: url('https://raw.githubusercontent.com/evoush-products/bahan_evoush/main/migration_db/${member.cover}')` : 'background-image: url(https://coolwallpapers.me/picsup/5605343-internet-wallpapers.jpg)'">
-						<div class="media align-items-end">
+						<div class="media float-right">
 							<div class="row justify-content-center">
 								<div class="col-lg-10">
-									<div v-if="member.avatar">
-										<img :src="`https://app.evoush.com/storage/${member.avatar}`" alt="..." width="130" class="rounded-circle mb-3 profile profile-overlay">
+									<div v-if="member.avatar" class="container">
+										<img :src="`https://app.evoush.com/storage/${member.avatar}`" alt="..."  class="rounded-circle mb-3 profile profile-overlay">
+										<div class="middle">
+											<a :href="`https://app.evoush.com/storage/${member.avatar}`" class="btn btn-sm btn-primary mb-2" target="_blank"><i class='bx bx-zoom-in'></i> View Image </a>
+										</div>
 									</div>
 									<div v-else>
-										<img src="https://raw.githubusercontent.com/codesyariah122/bahan-evoush/main/images/profile/default.jpg" :alt="member.name" class="rounded-circle mb-3 profile profile-overlay rounded-circle mb-3" width="80">
+										<img src="https://raw.githubusercontent.com/codesyariah122/bahan-evoush/main/images/profile/default.jpg" :alt="member.name" class="mb-3 profile profile-overlay rounded-circle mb-3" width="80">
 									</div>
 								</div>
 								<div class="col-lg-8 col-xs-6 col-sm-6">
@@ -264,7 +267,7 @@
 .cover {
 	background-repeat: no-repeat;
 	/*height: 50vh;*/
-	min-height: 50vh;
+	min-height: 55vh;
 	width: 100%;
 	-webkit-background-size: cover;
 	background-size: cover;
@@ -273,10 +276,10 @@
 
 .media .profile{
 	width: 150px;
-	height: 150px;
+	height: auto;
 	border-radius: 50%!important;
-	margin-top: 7rem;
-	/*margin-left: -2rem;*/
+	margin-top: 1rem;
+	margin-left: -1rem;
 }
 
 .container {
@@ -318,13 +321,20 @@
 	cursor: pointer;
 }
 
+.media-body {
+	margin-top: 2.3rem;
+}
+
 .media-body h4{
-	font-size: 35px;
+	font-size: 31px;
+}
+.media-body p{
+	font-size:16px;
 }
 @media (min-width: 992px) {
 	.media .profile{
-		margin-top: 25rem;
-		/*margin-left: 2rem;*/
+		margin-top: 1rem;
+		margin-left: -2rem;
 	}
 
 	.media .profile{
@@ -334,6 +344,19 @@
 		margin-top: 7rem;*/
 		/*margin-left: -2rem;*/
 	}
+
+	.profile-overlay{
+		opacity: 1;
+		display: block;
+		width: 100%;
+		height: auto;
+		transition: .5s ease;
+		backface-visibility: hidden;
+	}
+	.container:hover .profile-overlay{
+		opacity: 0.3;
+	}
+
 
 }
 </style>
