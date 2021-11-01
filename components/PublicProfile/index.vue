@@ -169,8 +169,8 @@
 					{id:2, url: 'https://raw.githubusercontent.com/evoush-products/evoush-express/master/public/images/gallery/branding/klev_branding2.jpeg'}
 				],
 				credential: {
-					username: localStorage.getItem('username'),
-					token: localStorage.getItem('token')
+					username: localStorage.getItem('username') ? localStorage.getItem('username') : '',
+					token: localStorage.getItem('token') ? localStorage.getItem('token') : ''
 				},
 
 				followers: null,
@@ -187,6 +187,8 @@
 					name: 'profile-username',
 					params: {username: this.username}
 				})
+			}else{
+				console.log("ANJING")
 			}
 
 			this.$axios.defaults.headers.common.Authorization = `Bearer ${this.credential.token}`

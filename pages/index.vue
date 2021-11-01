@@ -48,7 +48,7 @@
 					<div v-if="activate_user.status === 'INACTIVE'" >
 						<div class="alert alert-warning alert-dismissible fade show" role="alert">
 							<strong>Halo {{ activate_user.username }}!</strong> Jika pemberitahuan ini masih muncul, kemungkinan member anda belum di aktivasi pada system web replika, silahkan hubungi sponsor atau admin website official evoush. <br>
-							<a href="mailto:admin_evoush@evoush.com" class="btn-link">Admin Evoush</a>
+							<a href="mailto:admin_evoush@evoush.com" class="btn-link"  @click="AktivasiAkun">Admin Evoush</a>
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -218,6 +218,8 @@
 				deferredPrompt: '',
 				colorMode: this.color,
 				activate_user: {},
+				has_join: {},
+				has_join_status:'',
 				image: {
 					type: String,
 					default: 'https://raw.githubusercontent.com/codesyariah122/bahan-evoush/main/images/banner/about/3.jpg'
@@ -321,27 +323,34 @@
 		mounted(){
 			// OneSignal.log.setLevel('trace')
 			// this.isPushNotificationsEnabledVerbose()
-			this.AktivasiAkun()
+			this.CheckSponsor()
 		},
 		methods: {
 			AktivasiAkun(){
+				location.reload()
+			},
+			CheckSponsor(){
+				const sponsor_id = localStorage.getItem('sponsor_id')
 				const user = JSON.parse(localStorage.getItem('activation'))
-				this.$axios.get(`https://app.evoush.com/api/evoush/user/active/${user.email}`)
-				.then(res => {
-					this.activate_user = {
-						username: res.data.data.username,
-						email: res.data.data.email,
-						status: res.data.data.status
-					}
-					if(this.activate_user.status === "INACTIVE"){
-						this.$toast(`${res.data.data.username}, username anda belum di aktivasi, silahkan laporkan ke admin website official evoush`)
-					}
-					localStorage.setItem('activation', JSON.stringify(this.activate_user))
-				})
-				.catch(err => {
-					console.log(err.response.data)
-				})
-				// this.$router.back()
+				if(user !== null){
+					this.$axios.get(`https://app.evoush.com/api/evoush/member/sponsor/check/${user.id}`)
+					.then(res => {
+						console.log(res.data)
+						if(res.data.data){
+							// this.$toast(`${user.username}, member anda telah di aktivasi`)
+							this.has_join_status = true
+							this.has_join = res.data.data
+						}else{
+							this.has_join_status = false
+						}
+						// console.log(res.data)
+					})
+					.catch(err => {
+						console.log(err.message)
+					})
+				}else{
+					console.log("ANjing NU itu Anjing setan")
+				}
 			},
 			async dismiss() {
 				this.deferredPrompt = null;

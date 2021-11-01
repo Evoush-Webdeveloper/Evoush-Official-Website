@@ -192,7 +192,7 @@
 			},
 			getMember(username){
 				this.loading = true
-				this.$axios.get(`https://app.evoush.com/member/join/active/${username}`)
+				this.$axios.get(`https://app.evoush.com/api/member/join/active/${username}`)
 				.then( res => {
 					console.log(res.data.length)
 					this.followers = res.data
