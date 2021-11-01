@@ -43,6 +43,19 @@
 					</center>
 				</div>
 
+				<!-- member inactive -->
+				<div class="col-lg-12 col-xs-12 col-sm-12 mt-5 mb-5">
+					<div v-if="activate_user.status === 'INACTIVE'" >
+						<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							<strong>Halo {{ activate_user.username }}!</strong> Jika pemberitahuan ini masih muncul, kemungkinan member anda belum di aktivasi pada system web replika, silahkan hubungi sponsor atau admin website official evoush. <br>
+							<a href="mailto:admin_evoush@evoush.com" class="btn-link">Admin Evoush</a>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+				</div>
+
 				<!-- test vuex -->
 				<!-- <div class="col-lg-12">
 					test : {{ tester }}
@@ -204,6 +217,7 @@
 				env: process.env.config_production,
 				deferredPrompt: '',
 				colorMode: this.color,
+				activate_user: {},
 				image: {
 					type: String,
 					default: 'https://raw.githubusercontent.com/codesyariah122/bahan-evoush/main/images/banner/about/3.jpg'
@@ -307,8 +321,28 @@
 		mounted(){
 			// OneSignal.log.setLevel('trace')
 			// this.isPushNotificationsEnabledVerbose()
+			this.AktivasiAkun()
 		},
 		methods: {
+			AktivasiAkun(){
+				const user = JSON.parse(localStorage.getItem('activation'))
+				this.$axios.get(`https://app.evoush.com/api/evoush/user/active/${user.email}`)
+				.then(res => {
+					this.activate_user = {
+						username: res.data.data.username,
+						email: res.data.data.email,
+						status: res.data.data.status
+					}
+					if(this.activate_user.status === "INACTIVE"){
+						this.$toast(`${res.data.data.username}, username anda belum di aktivasi, silahkan laporkan ke admin website official evoush`)
+					}
+					localStorage.setItem('activation', JSON.stringify(this.activate_user))
+				})
+				.catch(err => {
+					console.log(err.response.data)
+				})
+				// this.$router.back()
+			},
 			async dismiss() {
 				this.deferredPrompt = null;
 			},

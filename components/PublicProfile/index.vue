@@ -28,7 +28,7 @@
 										</div>
 									</div>
 									<div v-else>
-										<img src="https://raw.githubusercontent.com/codesyariah122/bahan-evoush/main/images/profile/default.jpg" :alt="member.name" class="mb-3 profile profile-overlay rounded-circle mb-3" width="80">
+										<img src="https://raw.githubusercontent.com/codesyariah122/bahan-evoush/main/images/profile/default.jpg" :alt="member.name" class="mb-3 profile profile-overlay rounded-circle" width="80" style="width:250px!important;">
 									</div>
 								</div>
 								<div class="col-lg-8 col-xs-6 col-sm-6">
@@ -212,7 +212,7 @@
 			},
 
 			getFollowers(username){
-				this.$axios.get(`https://app.evoush.com/api/member/join/active/${username}`)
+				this.$axios.get(`http://app.evoush.com/api/member/join/active/${username}`)
 				.then( res => {
 					this.followers = res.data
 					// console.log(this.followers.length)
